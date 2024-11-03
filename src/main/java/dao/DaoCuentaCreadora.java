@@ -19,14 +19,14 @@ public class DaoCuentaCreadora {
 	}
 	
 	public static ModeloCuentaCreadora obtenerPorNombre(String nombre, Session session) {
-		 String hql="FROM CuentaCreadora WHERE cuenta = :cuenta";
+		 String hql="FROM ModeloCuentaCreadora WHERE cuenta = :cuenta";
 		 Query<ModeloCuentaCreadora> query=session.createQuery(hql, ModeloCuentaCreadora.class);
 		 query.setParameter("cuenta", nombre);
 		 return query.uniqueResult();
 	}
 	
 	public static List<ModeloCuentaCreadora> obtenerPorUsuario(ModeloUsuario usuario, Session session){
-		String hql="FROM CuentaCreadora cc JOIN cc.contenidos c JOIN c.usuarios u WHERE cc.cuentaCreadora_id = c.cuentaCreadora_id AND u.usuario_id=:usuario_id";
+		String hql="FROM ModeloCuentaCreadora cc JOIN cc.contenidos c JOIN c.usuarios u WHERE cc.cuentaCreadora_id = c.creador.cuentaCreadora_id AND u.usuario_id=:usuario_id";
 		List<ModeloCuentaCreadora>lst=session.createSelectionQuery(hql,ModeloCuentaCreadora.class).setParameter("usuario_id",usuario.getUsuario_id()).getResultList();
 		return lst;
 	}

@@ -19,13 +19,13 @@ public class DaoUsuario {
 	}
 	
 	public static List<ModeloUsuario> listaTodos(Session session){
-		String hql="FROM Usuario";
+		String hql="FROM ModeloUsuario";
 		Query<ModeloUsuario> query=session.createQuery(hql,ModeloUsuario.class);
 		return query.getResultList();
 	}
 	
 	public static ModeloUsuario conseguirPorEmail(String email,Session session) {
-		 String hql = "FROM Usuario WHERE email = :email";
+		 String hql = "FROM ModeloUsuario WHERE email = :email";
 		 Query<ModeloUsuario>query=session.createQuery(hql,ModeloUsuario.class);
 		 query.setParameter("email",email);
 		 return query.uniqueResult();

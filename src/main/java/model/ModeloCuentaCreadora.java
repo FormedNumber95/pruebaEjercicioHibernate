@@ -20,8 +20,8 @@ public class ModeloCuentaCreadora {
 	@Column(length=100, unique = true, nullable = false)
 	private String cuenta;
 	private int anio;
-	@OneToMany(mappedBy="contenido_id")
-	private Set<ModeloContenido> contenido=new HashSet<ModeloContenido>();
+	@OneToMany(mappedBy="creador")
+	private Set<ModeloContenido> contenidos=new HashSet<ModeloContenido>();
 	
 	public ModeloCuentaCreadora() {
 	}
@@ -56,15 +56,15 @@ public class ModeloCuentaCreadora {
 	}
 
 	public Set<ModeloContenido> getContenido() {
-		return contenido;
+		return contenidos;
 	}
 
-	public void setContenido(Set<ModeloContenido> contenido) {
-		this.contenido = contenido;
+	public void setContenidos(Set<ModeloContenido> contenido) {
+		this.contenidos = contenido;
 	}
 	
 	public void aniadirContenido(ModeloContenido contenido) {
-		this.contenido.add(contenido);
+		this.contenidos.add(contenido);
 	}
 	
 }

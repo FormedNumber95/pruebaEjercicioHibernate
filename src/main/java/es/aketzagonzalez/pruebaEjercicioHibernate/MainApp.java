@@ -32,6 +32,7 @@ public class MainApp{
     public static void selectAll() {
     	Session session = HibernateUtil.getSessionFactory().openSession();
     	List<ModeloUsuario>lstUsuarios=DaoUsuario.listaTodos(session);
+    	System.out.println("HOLA");
     	for(ModeloUsuario usu:lstUsuarios) {
     		 System.out.println(usu.getNombre());
     		 System.out.println("Cuentas:");
@@ -46,6 +47,14 @@ public class MainApp{
     }
 	
     public static void main(String[] args) {
+    	//Session session = HibernateUtil.getSessionFactory().openSession();
+    	//ModeloCuentaCreadora creador=new ModeloCuentaCreadora("TU", 2010);
+    	//ModeloContenido contenido=new ModeloContenido("pako", "si", 10, "Aqui", creador);
+    	//ModeloUsuario usuario=new ModeloUsuario("pako@gmail.com", 10, "FIN");
+    	//DaoCuentaCreadora.insertar(creador, session);
+    	//DaoContenido.insertar(contenido, session);
+    	//DaoUsuario.insertar(usuario, session);
+    	//DaoContenido.aniadirUsuario(contenido, usuario, session);
     	selectAll();
     }
 

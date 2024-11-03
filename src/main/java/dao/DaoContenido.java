@@ -19,14 +19,14 @@ public class DaoContenido {
 	}
 	
 	public static ModeloContenido obtenerPorNombre(String nombre,Session session) {
-		String hql="FROM Contenido WHERE nombre=:nombre";
+		String hql="FROM ModeloContenido WHERE nombre=:nombre";
 		Query<ModeloContenido> query=session.createQuery(hql,ModeloContenido.class);
 		query.setParameter("nombre",nombre);
 		return query.uniqueResult();
 	}
 	
 	public static List<ModeloContenido> obtenerPorUsuario(ModeloUsuario usuario,Session session){
-		String hql="FROM Contenido c JOIN c.usuarios u WHERE u.usuario_id=:usuario_id";
+		String hql="FROM ModeloContenido c JOIN c.usuarios u WHERE u.usuario_id=:usuario_id";
 		List<ModeloContenido>lst=session.createSelectionQuery(hql,ModeloContenido.class).setParameter("usuario_id",usuario.getUsuario_id()).getResultList();
 		return lst;
 	}
