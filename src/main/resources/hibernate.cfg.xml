@@ -21,3 +21,4 @@
         <mapping class="com.example.model.ModeloUsuario" />
     </session-factory>
 </hibernate-configuration>
+src\main\java\model\ModeloContenido.java

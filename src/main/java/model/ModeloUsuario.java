@@ -11,15 +11,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Usuario")
 public class ModeloUsuario {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long usuario_id;
 	@Column(length=100, unique = true, nullable = false)
-	private String Mail;
+	private String email;
 	private int edad;
 	@Column(length=100)
 	private String nombre;
@@ -29,8 +31,8 @@ public class ModeloUsuario {
 	public ModeloUsuario(){
 	}
 
-	public ModeloUsuario(String mail, int edad, String nombre) {
-		Mail = mail;
+	public ModeloUsuario(String email, int edad, String nombre) {
+		this.email = email;
 		this.edad = edad;
 		this.nombre = nombre;
 	}
@@ -60,12 +62,12 @@ public class ModeloUsuario {
 		this.usuario_id = usuario_id;
 	}
 
-	public String getMail() {
-		return Mail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		Mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getEdad() {
